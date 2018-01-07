@@ -17,7 +17,18 @@ exports.handler = (event, context, callback) => {
         httpVersion: request.httpVersion,
         body: request.clientIp,
         headers: {
-            "Vary": ['*'],
+            'cache-control': [{
+                key: 'Cache-Control',
+                value: 'no-cache'
+            }],
+            'content-type': [{
+                key: 'Content-Type',
+                value: 'text/plain'
+            }],
+            'content-encoding': [{
+                key: 'Content-Encoding',
+                value: 'UTF-8'
+            }],
         },
     };
 

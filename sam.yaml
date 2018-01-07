@@ -6,8 +6,8 @@ Resources:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: index.handler
-      Runtime: nodejs4.3-edge
-      CodeUri: .
+      Runtime: nodejs6.10
       Description: ''
       MemorySize: 128
-      Timeout: 1
+      Timeout: 3
+      Role: !Sub "arn:aws:iam::${AWS::AccountId}:role/service-role/LambdaEdgeRole"
